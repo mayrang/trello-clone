@@ -84,7 +84,7 @@ export default function Board({ toDos, droppableId }: IBoardProps) {
     setValue("toDo", "");
   };
   return (
-    <Droppable droppableId={droppableId}>
+    <Droppable droppableId={droppableId} type="todo">
       {(magic, snapshot) => (
         <Wrapper>
           <h2>{droppableId}</h2>
