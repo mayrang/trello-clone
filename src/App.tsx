@@ -67,7 +67,7 @@ interface IForm {
 // Draggable 노드의 형제로 렌더링하는 것이 좋습니다.
 
 function App() {
-  const { register, handleSubmit } = useForm<IForm>();
+  const { register, handleSubmit, setValue } = useForm<IForm>();
   const [toDos, setToDos] = useRecoilState(toDoAtom);
   const [boardOrder, setBoardOrder] = useRecoilState(boardOrderAtom);
   console.log("boardOrder", boardOrder);
@@ -141,6 +141,7 @@ function App() {
       };
     });
     setBoardOrder((prev) => [...prev, data.board]);
+    setValue("board", "");
   };
 
   // droppable type 바로 밑에 위치하는 draggable은 바로 위 droppable의 type과 같은 droppable에만 이동 가능한 것으로 추정
